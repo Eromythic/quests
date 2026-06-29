@@ -1,0 +1,339 @@
+---
+# Front matter (even empty) tells Jekyll to process this SCSS file.
+---
+
+/* ===========================================================================
+   Adventurers' Guild — Notice Board
+   Custom bulletin-board styling. No theme gem.
+   Palette: cork, parchment, ink, wax-seal red.
+   =========================================================================== */
+
+:root {
+  --cork:        #b07a3c;
+  --cork-dark:   #8a5d2a;
+  --parchment:   #f3e6c4;
+  --parchment-2: #ecdcb0;
+  --ink:         #3a2a18;
+  --ink-soft:    #5c4327;
+  --seal:        #8c2f23;
+  --seal-dark:   #6e2018;
+  --gold:        #b8860b;
+  --pin:         #c23b2b;
+  --shadow:      rgba(40, 24, 8, 0.45);
+
+  --font-display: "Cinzel", "Times New Roman", serif;
+  --font-hand:    "IM Fell English", Georgia, serif;
+  --font-body:    "EB Garamond", Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  /* Cork board: layered radial speckle over a warm base. */
+  background-color: var(--cork);
+  background-image:
+    radial-gradient(rgba(90, 55, 20, 0.55) 12%, transparent 13%),
+    radial-gradient(rgba(120, 80, 35, 0.45) 12%, transparent 13%),
+    radial-gradient(rgba(60, 38, 14, 0.35) 10%, transparent 11%);
+  background-size: 22px 22px, 28px 28px, 16px 16px;
+  background-position: 0 0, 11px 9px, 5px 14px;
+}
+
+a { color: var(--seal); }
+
+/* ----------------------------- Header ------------------------------------ */
+
+.guild-header {
+  text-align: center;
+  padding: 2.4rem 1rem 1.6rem;
+  color: var(--parchment);
+}
+
+.guild-header__eyebrow {
+  margin: 0;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--parchment-2);
+  opacity: 0.85;
+}
+
+.guild-header__title {
+  margin: 0.2rem 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 0 var(--ink), 0 4px 10px var(--shadow);
+}
+.guild-header__title a { color: inherit; text-decoration: none; }
+
+.guild-header__subtitle {
+  margin: 0;
+  font-family: var(--font-hand);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--parchment-2);
+}
+
+/* ----------------------------- Board sections ---------------------------- */
+
+.board {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.2rem 3rem;
+}
+
+.board-section { margin-bottom: 3rem; }
+
+.board-section__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--parchment);
+  text-align: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.5rem 0 1.8rem;
+  text-shadow: 0 2px 6px var(--shadow);
+}
+.board-section__title::before,
+.board-section__title::after { content: "\2014  "; opacity: 0.6; }
+.board-section__title::after  { content: "  \2014"; }
+
+.board-empty {
+  text-align: center;
+  font-family: var(--font-hand);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--parchment-2);
+}
+
+/* ----------------------------- Card grid --------------------------------- */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem 1.8rem;
+  align-items: start;
+}
+
+/* ----------------------------- Quest card -------------------------------- */
+
+.card {
+  position: relative;
+  background: var(--parchment);
+  background-image: linear-gradient(160deg, rgba(255,255,255,0.35), rgba(160,120,60,0.18));
+  border: 1px solid rgba(110, 75, 30, 0.35);
+  border-radius: 3px;
+  padding: 1.6rem 1.4rem 1.3rem;
+  box-shadow: 0 10px 18px var(--shadow), inset 0 0 40px rgba(150, 110, 50, 0.12);
+}
+/* Static pinned tilt (no hover animation). */
+.card:nth-child(odd)       { transform: rotate(-1.4deg); }
+.card:nth-child(even)      { transform: rotate(1.1deg); }
+.card:nth-child(3n)        { transform: rotate(0.6deg); }
+
+.card__pin {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ff7a6b, var(--pin) 60%, #7d1d12);
+  box-shadow: 0 3px 5px var(--shadow);
+}
+
+.card__title {
+  margin: 0.2rem 0 0.8rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  text-align: center;
+}
+.card__title a { color: var(--ink); text-decoration: none; }
+.card__title a:hover { color: var(--seal); }
+
+/* Tags as ink/wax stamps */
+.card__tags {
+  list-style: none;
+  margin: 0 0 0.9rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+}
+.tag {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.6rem;
+  border-radius: 2px;
+  color: #fff;
+  background: var(--ink-soft);
+  border: 1px solid rgba(0,0,0,0.2);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
+}
+/* Accent colors for known tag families; unknown tags use the default above. */
+.tag--dungeon     { background: #4a2c5a; }
+.tag--gauntlet    { background: #7a2b22; }
+.tag--exploration { background: #2c5a3a; }
+.tag--escort      { background: #2c4a6a; }
+.tag--rescue      { background: #8a5a16; }
+.tag--mystery     { background: #4a4a2c; }
+.tag--bounty      { background: #6e2018; }
+
+.card__body {
+  font-family: var(--font-body);
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+  min-height: 2.5em;
+}
+
+.card__meta {
+  margin: 0 0 1rem;
+  padding-top: 0.7rem;
+  border-top: 1px dashed rgba(110, 75, 30, 0.5);
+  font-size: 0.95rem;
+}
+.card__meta-row { display: flex; gap: 0.5rem; margin: 0.2rem 0; }
+.card__meta-row dt {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  flex: 0 0 5.5rem;
+  padding-top: 0.15rem;
+}
+.card__meta-row dd { margin: 0; font-weight: 600; }
+.card__meta-row--reward dd {
+  color: var(--seal);
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+}
+
+.card__more {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--seal);
+}
+.card__more:hover { text-decoration: underline; }
+
+/* Completed cards: aged + stamped */
+.card--done {
+  filter: sepia(0.25) saturate(0.85);
+  opacity: 0.93;
+}
+.card__stamp,
+.posting__stamp {
+  position: absolute;
+  top: -16px;
+  right: -12px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--seal);
+  background: rgba(243, 230, 196, 0.85);
+  border: 3px solid var(--seal);
+  border-radius: 4px;
+  padding: 0.15rem 0.6rem;
+  transform: rotate(12deg);
+  opacity: 0.8;
+  box-shadow: 0 0 0 2px rgba(140, 47, 35, 0.15);
+  z-index: 3;
+}
+
+/* ----------------------------- Posting (detail) -------------------------- */
+
+.posting {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--parchment);
+  background-image: linear-gradient(160deg, rgba(255,255,255,0.35), rgba(160,120,60,0.16));
+  border: 1px solid rgba(110, 75, 30, 0.4);
+  border-radius: 4px;
+  padding: 2.2rem 2.4rem 2.6rem;
+  box-shadow: 0 14px 30px var(--shadow), inset 0 0 70px rgba(150, 110, 50, 0.12);
+}
+.posting--done { filter: sepia(0.22) saturate(0.88); }
+
+.posting__back {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--seal);
+}
+
+.posting__header { text-align: center; margin: 1rem 0 1.4rem; }
+.posting__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  margin: 0.3rem 0 0.9rem;
+}
+.posting__stamp { top: -14px; right: 18px; font-size: 1.1rem; }
+
+.posting__meta {
+  margin: 0 0 1.6rem;
+  padding: 1rem 1.2rem;
+  background: rgba(180, 140, 70, 0.16);
+  border: 1px dashed rgba(110, 75, 30, 0.5);
+  border-radius: 3px;
+}
+
+.posting__body {
+  font-family: var(--font-body);
+  font-size: 1.12rem;
+  line-height: 1.65;
+}
+.posting__body h2,
+.posting__body h3 { font-family: var(--font-display); }
+.posting__body img { max-width: 100%; height: auto; }
+
+/* ----------------------------- Footer ------------------------------------ */
+
+.guild-footer {
+  text-align: center;
+  padding: 1.5rem 1rem 2.5rem;
+  color: var(--parchment-2);
+  font-family: var(--font-hand);
+  font-style: italic;
+}
+
+/* ----------------------------- Responsive -------------------------------- */
+
+@media (max-width: 540px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .card:nth-child(odd),
+  .card:nth-child(even),
+  .card:nth-child(3n) { transform: rotate(0deg); }
+  .posting { padding: 1.6rem 1.3rem 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

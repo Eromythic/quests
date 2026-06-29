@@ -1,0 +1,51 @@
+{% assign quest = include.quest %}
+<article class="card {% if quest.status == "completed" %}card--done{% else %}card--open{% endif %}">
+  <span class="card__pin" aria-hidden="true"></span>
+  {% if quest.status == "completed" %}<span class="card__stamp" aria-hidden="true">Completada</span>{% endif %}
+
+  <h3 class="card__title">
+    <a href="{{ quest.url | relative_url }}">{{ quest.title }}</a>
+  </h3>
+
+  {% if quest.tags and quest.tags.size > 0 %}
+  <ul class="card__tags">
+    {% for tag in quest.tags %}
+    <li class="tag tag--{{ tag | slugify }}">{{ tag }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <div class="card__body">
+    {{ quest.brief }}
+  </div>
+
+  <dl class="card__meta">
+    {% if quest.party_level %}
+    <div class="card__meta-row">
+      <dt>Party Level</dt>
+      <dd>{{ quest.party_level }}</dd>
+    </div>
+    {% endif %}
+    {% if quest.status == "completed" %}
+      {% if quest.participants and quest.participants.size > 0 %}
+      <div class="card__meta-row">
+        <dt>Party</dt>
+        <dd>{{ quest.participants | join: ", " }}</dd>
+      </div>
+      {% endif %}
+      {% if quest.rewards_granted %}
+      <div class="card__meta-row">
+        <dt>Loot</dt>
+        <dd>{% if quest.rewards_granted.first %}{{ quest.rewards_granted | join: "<br>" }}{% else %}{{ quest.rewards_granted }}{% endif %}</dd>
+      </div>
+      {% endif %}
+	{% else %}
+      <div class="card__meta-row card__meta-row--reward">
+        <dt>Recompensa</dt>
+        <dd>{% if quest.reward.first %}{{ quest.reward | join: "<br>" }}{% else %}{{ quest.reward }}{% endif %}</dd>
+      </div>
+    {% endif %}
+  </dl>
+
+  <a class="card__more" href="{{ quest.url | relative_url }}">Ver detalle &rarr;</a>
+</article>

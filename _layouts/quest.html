@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<article class="posting {% if page.status == "completed" %}posting--done{% else %}posting--open{% endif %}">
+  <a class="posting__back" href="{{ '/' | relative_url }}">&larr; Volver al tablón</a>
+
+  <header class="posting__header">
+    {% if page.status == "completed" %}<span class="posting__stamp" aria-hidden="true">Completada</span>{% endif %}
+    <h2 class="posting__title">{{ page.title }}</h2>
+    {% if page.tags and page.tags.size > 0 %}
+    <ul class="card__tags">
+      {% for tag in page.tags %}
+      <li class="tag tag--{{ tag | slugify }}">{{ tag }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </header>
+
+  <dl class="posting__meta">
+    {% if page.party_level %}
+    <div class="card__meta-row"><dt>Party Level</dt><dd>{{ page.party_level }}</dd></div>
+    {% endif %}
+    {% if page.status == "completed" %}
+      {% if page.participants and page.participants.size > 0 %}
+      <div class="card__meta-row"><dt>Players</dt><dd>{{ page.participants | join: ", " }}</dd></div>
+      {% endif %}
+      {% if page.rewards_granted %}
+      <div class="card__meta-row"><dt>Loot</dt><dd>{% if page.rewards_granted.first %}{{ page.rewards_granted | join: "<br>" }}{% else %}{{ page.rewards_granted }}{% endif %}</dd></div>
+      {% endif %}
+	{% else %}
+	  <div class="card__meta-row card__meta-row--reward"><dt>Recompensa</dt><dd>{% if page.reward.first %}{{ page.reward | join: "<br>" }}{% else %}{{ page.reward }}{% endif %}</dd></div>
+    {% endif %}
+  </dl>
+
+  <div class="posting__body">
+    {{ content }}
+  </div>
+</article>

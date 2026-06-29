@@ -1,0 +1,31 @@
+---
+layout: default
+---
+{% assign available = site.quests | where: "status", "available" | sort: "party_level", "last" | reverse %}
+{% assign completed = site.quests | where: "status", "completed" | sort: "completed_on" | reverse %}
+
+<section class="board-section" id="available">
+  <h2 class="board-section__title">Misiones Disponibles</h2>
+  {% if available.size > 0 %}
+  <div class="card-grid">
+    {% for quest in available %}
+      {% include quest-card.html quest=quest %}
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="board-empty">No hay misiones abiertas en este momento.</p>
+  {% endif %}
+</section>
+
+<section class="board-section board-section--done" id="completed">
+  <h2 class="board-section__title">Misiones completadas</h2>
+  {% if completed.size > 0 %}
+  <div class="card-grid">
+    {% for quest in completed %}
+      {% include quest-card.html quest=quest %}
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="board-empty">...</p>
+  {% endif %}
+</section>

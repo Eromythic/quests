@@ -1,0 +1,33 @@
+title: "Tablón de Quests"
+description: >-
+  Ver misiones disponibles y completadas.
+baseurl: "/quests"        # standalone Pages repo, served at domain root
+url: ""
+
+# Quests are a collection: drop a Markdown file in _quests/ and it appears.
+collections:
+  quests:
+    output: true                 # each quest also gets its own detail page
+    permalink: /quests/:name/
+
+# Default layout for quest documents so files don't need to repeat it.
+defaults:
+  - scope:
+      path: ""
+      type: quests
+    values:
+      layout: quest
+
+# Build settings
+markdown: kramdown
+# No theme gem — layouts/CSS are fully custom. (The github-pages gem otherwise
+# defaults to jekyll-theme-primer, which would emit an unused style.css.)
+theme: null
+
+# Exclude tooling/meta from the build output.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
+  - .bundle
