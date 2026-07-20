@@ -1,6 +1,6 @@
 ---
 title: "La purificación de Monteolvido"
-brief: "Un respetado druida a venido a purificar el Pozo Lunar de Monteolvido. Necesitará protección mientras lleva a cabo el ritual."
+brief: "Un respetado druida ha venido a purificar el Pozo Lunar de Monteolvido. Necesitará protección mientras lleva a cabo el ritual."
 tags: [escort, gauntlet]
 reward: "Dinero"
 status: available
