@@ -1,9 +1,11 @@
 ---
-title: "El templo acuático"
+published: false
+title: "El Portal Acuático"
 brief: "TODO"
-tags: [dungeon]
+tags: [dungeon, social]
                                     
-reward: "TODO"
+reward:
+ - "New Character Options"
 status: available                  # available | completed
 
 # --- Fill these in ONLY when status is "completed": ---

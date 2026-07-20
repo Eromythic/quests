@@ -7,7 +7,7 @@ status: completed
 
 party_level: 2
 completed_on: 2026-07-20
-participants: [Alandete, Erkete, Henineh (☠), Holly, Hydna]
+participants: [Alandete, Erkete, Henineh (✝), Holly, Hydna]
 rewards_granted: 
  - "90 GP / persona"
  - "2 Potion of Healing"
