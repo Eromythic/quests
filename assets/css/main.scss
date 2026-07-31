@@ -193,9 +193,10 @@ a { color: var(--seal); }
 .tag--gauntlet    { background: #7a2b22; }
 .tag--exploration { background: #2c5a3a; }
 .tag--escort      { background: #2c4a6a; }
-.tag--rescue      { background: #8a5a16; }
-.tag--mystery     { background: #4a4a2c; }
+.tag--extraction  { background: #4a4a4a; }
+.tag--mystery     { background: #833d7b; }
 .tag--bounty      { background: #6e2018; }
+.tag--social	    { background: #60807d; }
 
 .card__body {
   font-family: var(--font-body);
