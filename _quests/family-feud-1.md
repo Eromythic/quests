@@ -16,3 +16,5 @@ Los aventureros de Pueblo Paloma han ganado notoriedad. Tanto es así que llega 
 El Conde de Lambrusco quiere que os acerquéis a una hacienda de vacaciones del Conde Floretti a recuperar una reliquia de la familia Lambrusco, que les fue ilegítimamente arrebatada. A cambio, ganaréis no solo las gracias de la poderosa familia Lambrusco, sino también la posibilidad de obtener un objeto mágico de entre los muchos que posee la familia. Como nadie sabe que Floretti tiene la reliquia esa, si la robais no tiene recurso. Si herís a alguien en la hacienda la familia Lambrusco os cubrirá las espaldas, pero **no podéis matar a nadie** (si hay víctimas mortales la gravedad del caso sería demasiado grande para que el Conde lo oculte).
 
 En caso de aceptar, el mensajero os proveerá de la información que necesitaréis: detalles de la reliquia, la localización y los planos de la hacienda del Conde Floretti.
+
+[Escudo Conde Lambrusco]({% link assets/img/lambrusco_heraldry.png %})
