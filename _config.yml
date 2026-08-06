@@ -20,8 +20,7 @@ defaults:
 
 # Build settings
 markdown: kramdown
-# No theme gem — layouts/CSS are fully custom. (The github-pages gem otherwise
-# defaults to jekyll-theme-primer, which would emit an unused style.css.)
+# No theme gem — layouts/CSS are fully custom.
 theme: null
 
 # Exclude tooling/meta from the build output.

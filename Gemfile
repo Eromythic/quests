@@ -1,10 +1,12 @@
 source "https://rubygems.org"
 
-# Use the github-pages gem so the local build matches GitHub Pages' build exactly.
-gem "github-pages", group: :jekyll_plugins
+# Jekyll 4 — built and deployed via GitHub Actions (see .github/workflows/jekyll.yml).
+# The classic GitHub Pages branch build only supports Jekyll 3, so don't switch back
+# to the github-pages gem unless also reverting the Pages source to "Deploy from a branch".
+gem "jekyll", "~> 4.4"
 
 # Windows and JRuby do not include zoneinfo files, so bundle tzinfo-data.
-platforms :mingw, :x64_mingw, :mswin, :jruby do
+platforms :windows, :jruby do
   gem "tzinfo", ">= 1", "< 3"
   gem "tzinfo-data"
 end
