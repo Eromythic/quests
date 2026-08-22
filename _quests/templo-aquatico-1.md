@@ -18,4 +18,6 @@ Después de estudiar la zona en la que la carpa gigantesca fue pescada y analiza
 
 La Academia proveerá 2 Potions of Water Breathing por aventurero para la exploración, además de recompensa monetaria adicional al completar la misión. 
 
-*Información Extra (investigación Carpa): detalles extra por concretar cuando haya preparado la sesión*
+*Información Extra (investigación Carpa):* Las monedas y joyas que recubren la carpa tienen tallados detalles que coinciden con las antiguas leyendas marinas del lejano reino de Nas Kagual. Una supuesta potencia marítima que vive en las cascadas del fin del mundo. Entre los detalles tallados destaca el dragón marino.
+
+![Image]({{"assets/img/sea_dragon.bmp" | relative_url}})
