@@ -1,7 +1,7 @@
 ---
 title: "El templo acuático"
 brief: "La Academia cree haber encontrado la localización de un templo importante. Se buscan aventureros que confirmen la existencia del templo y lo despejen de peligros!"
-tags: [exploration]
+tags: [exploration, dungeon]
                                     
 reward:
  - "Dinero"

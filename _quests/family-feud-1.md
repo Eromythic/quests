@@ -3,12 +3,14 @@ title: "Quien roba a un ladrón"
 brief: "Recuperad la reliquia familiar de los Lambrusco de las manos del Conde Floretti."
 tags: [extraction, social]
 reward: "Objeto mágico (a elegir entre varios)"
-status: available                  # available | completed
+status: completed
 
-# --- Fill these in ONLY when status is "completed": ---
-# completed_on: 2026-06-15          # YYYY-MM-DD. Completed quests are listed newest-first.
-# participants: [Thoradin, Lyra, Brakthor]
-# rewards_granted: "300 gp split three ways, +1 dagger to Lyra"
+party_level: 3
+completed_on: 2026-08-25
+participants: [Elter, Erkete, Holly, Hydna]
+rewards_granted:
+- "Choker of Enhanced Senses (Hydna)"
+- "Aurum and Argentum (Erkete)"
 ---
 
 Los aventureros de Pueblo Paloma han ganado notoriedad. Tanto es así que llega al pueblo un mensajero con una petición confidencial del Conde de Lambrusco. El mensajero se reúne con vosotros en una sala privada, donde os lee la petición:
